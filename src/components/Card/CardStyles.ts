@@ -1,10 +1,6 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    width: 200,
-    height: 400,
-  },
   containerImg: {
     flex: 1,
     borderRadius: 18,

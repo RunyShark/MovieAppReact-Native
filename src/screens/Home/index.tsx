@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from 'react-native-snap-carousel';
 import {ActivityIndicator, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useMovies, Card, styles} from '../../index';
@@ -17,10 +18,15 @@ export const HomeScreen = () => {
 
   return (
     <View style={{marginTop: top + 20}}>
-      <Card {...moviesInCine[0]} />
-      {/* {moviesInCine.map((movie: Movies) => (
+      {/* {moviesInCine.map((movie) => (
         <Card {...movie} />
       ))} */}
+      <Carousel
+        data={moviesInCine}
+        renderItem={() => <Card {...moviesInCine[0]} />}
+        sliderWidth={600}
+        itemWidth={300}
+      />
     </View>
   );
 };

@@ -9,12 +9,4 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
   },
-  textList: {
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-  list: {
-    backgroundColor: 'red',
-    height: 250,
-  },
 });

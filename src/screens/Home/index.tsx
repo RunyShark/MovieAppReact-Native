@@ -1,14 +1,8 @@
 import React from 'react';
 import Carousel from 'react-native-snap-carousel';
-import {
-  ActivityIndicator,
-  Dimensions,
-  FlatList,
-  Text,
-  View,
-} from 'react-native';
+import {ActivityIndicator, Dimensions, ScrollView, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useMovies, Card} from '../../index';
+import {useMovies, Card, FlatListCustom} from '../../index';
 import {styles} from './HomeStyle';
 
 const {width: windowWidth} = Dimensions.get('window');
@@ -26,28 +20,19 @@ export const HomeScreen = () => {
   }
 
   return (
-    <View style={{marginTop: top + 20}}>
-      <View style={styles.container}>
-        <Carousel
-          data={moviesInCine}
-          renderItem={({item}: any) => <Card {...item} />}
-          sliderWidth={windowWidth}
-          itemWidth={300}
-        />
+    <ScrollView>
+      <View style={{marginTop: top + 20}}>
+        <View style={styles.container}>
+          <Carousel
+            data={moviesInCine}
+            renderItem={({item}: any) => <Card {...item} />}
+            sliderWidth={windowWidth}
+            itemWidth={300}
+          />
+        </View>
+        <FlatListCustom title={'Movies in cine'} movies={moviesInCine} />
+        <FlatListCustom movies={moviesInCine} />
       </View>
-
-      <View style={styles.list}>
-        <Text>Movies in cine</Text>
-        <FlatList
-          data={moviesInCine}
-          renderItem={({item}: any) => (
-            <Card {...item} width={140} height={200} />
-          )}
-          keyExtractor={(item) => item.id.toString()}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
-    </View>
+    </ScrollView>
   );
 };

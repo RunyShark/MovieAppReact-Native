@@ -5,3 +5,4 @@ export * from '../api';
 export * from '../interface';
 export * from '../hooks';
 export * from '../theme';
+export * from '../components';

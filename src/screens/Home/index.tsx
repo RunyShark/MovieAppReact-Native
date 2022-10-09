@@ -1,17 +1,25 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {useMovies, styles} from '../../index';
+import {ActivityIndicator, View} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useMovies, Card, styles, Movies} from '../../index';
 
 export const HomeScreen = () => {
-  const {moviesInCine, isLoading, Loading} = useMovies();
+  const {moviesInCine, isLoading} = useMovies();
+  const {top} = useSafeAreaInsets();
+
+  if (isLoading) {
+    return (
+      <View style={styles.loading}>
+        <ActivityIndicator color={'red'} size={100} />
+      </View>
+    );
+  }
 
   return (
-    <>
-      {isLoading && <Loading />}
-
-      <View>
-        <Text>Home screen</Text>
-      </View>
-    </>
+    <View style={{marginTop: top + 20}}>
+      {moviesInCine.map((movie: Movies) => (
+        <Card {...movie} />
+      ))}
+    </View>
   );
 };

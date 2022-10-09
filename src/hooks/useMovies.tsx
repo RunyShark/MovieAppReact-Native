@@ -1,5 +1,6 @@
-import {useEffect, useState} from 'react';
-import {movieDB, MovieDBNowPlaying, Movies} from '../index/index';
+import React, {useEffect, useState} from 'react';
+import {ActivityIndicator, View} from 'react-native';
+import {movieDB, MovieDBNowPlaying, Movies, styles} from '../index';
 
 export const useMovies = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,9 +19,20 @@ export const useMovies = () => {
     getMovies();
   }, []);
 
+  const Loading = () => {
+    if (isLoading) {
+      return (
+        <View style={styles.loading}>
+          <ActivityIndicator color={'red'} size={100} />
+        </View>
+      );
+    }
+  };
+
   return {
     //*state
     moviesInCine,
     isLoading,
+    Loading,
   };
 };

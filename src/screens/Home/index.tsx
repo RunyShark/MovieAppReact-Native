@@ -31,7 +31,6 @@ export const HomeScreen = () => {
             inactiveSlideOpacity={0.9}
           />
         </View>
-        <FlatListCustom title={'Movies in cine'} movies={nowPlaying} />
         <FlatListCustom title={'Popular'} movies={popular} />
         <FlatListCustom title={'Top rated'} movies={topRated} />
         <FlatListCustom title={'Upcoming'} movies={upcoming} />

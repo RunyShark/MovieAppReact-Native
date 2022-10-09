@@ -1,12 +1,18 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen, DetailsScreen} from '../../index';
+import {DetailsScreen, HomeScreen} from '../../index';
 
 const Stack = createStackNavigator();
 
 export const NavigationStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyle: {
+          backgroundColor: 'white',
+        },
+      }}>
       <Stack.Screen
         name="HomeScreen"
         options={{title: 'Home'}}

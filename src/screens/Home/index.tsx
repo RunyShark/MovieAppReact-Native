@@ -8,7 +8,7 @@ import {styles} from './HomeStyle';
 const {width: windowWidth} = Dimensions.get('window');
 
 export const HomeScreen = () => {
-  const {moviesInCine, isLoading, popular, topRated, upcoming} = useMovies();
+  const {nowPlaying, popular, topRated, upcoming, isLoading} = useMovies();
   const {top} = useSafeAreaInsets();
 
   if (isLoading) {
@@ -24,16 +24,16 @@ export const HomeScreen = () => {
       <View style={{marginTop: top + 20}}>
         <View style={styles.container}>
           <Carousel
-            data={moviesInCine}
+            data={nowPlaying}
             renderItem={({item}: any) => <Card {...item} />}
             sliderWidth={windowWidth}
             itemWidth={300}
             inactiveSlideOpacity={0.9}
           />
         </View>
-        <FlatListCustom title={'Movies in cine'} movies={moviesInCine} />
+        <FlatListCustom title={'Movies in cine'} movies={nowPlaying} />
         <FlatListCustom title={'Popular'} movies={popular} />
-        <FlatListCustom title={'TopRated'} movies={topRated} />
+        <FlatListCustom title={'Top rated'} movies={topRated} />
         <FlatListCustom title={'Upcoming'} movies={upcoming} />
       </View>
     </ScrollView>

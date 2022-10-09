@@ -8,7 +8,7 @@ import {styles} from './HomeStyle';
 const {width: windowWidth} = Dimensions.get('window');
 
 export const HomeScreen = () => {
-  const {moviesInCine, isLoading} = useMovies();
+  const {moviesInCine, isLoading, popular} = useMovies();
   const {top} = useSafeAreaInsets();
 
   if (isLoading) {
@@ -28,10 +28,11 @@ export const HomeScreen = () => {
             renderItem={({item}: any) => <Card {...item} />}
             sliderWidth={windowWidth}
             itemWidth={300}
+            inactiveSlideOpacity={0.9}
           />
         </View>
         <FlatListCustom title={'Movies in cine'} movies={moviesInCine} />
-        <FlatListCustom movies={moviesInCine} />
+        <FlatListCustom movies={popular} />
       </View>
     </ScrollView>
   );

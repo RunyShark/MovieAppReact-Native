@@ -7,11 +7,11 @@ export const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 8,
+      height: 10,
     },
-    shadowOpacity: 0.44,
-    shadowRadius: 10.32,
-    elevation: 16,
+    shadowOpacity: 0.24,
+    shadowRadius: 7,
+    elevation: 9,
   },
   image: {
     flex: 1,

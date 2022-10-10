@@ -8,8 +8,8 @@ import {
   Text,
   View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {image, RootStackParams, useMovieDetails} from '../../index';
+
+import {image, RootStackParams, useMovieDetails, Details} from '../../index';
 import {styles} from './DetailsStyle';
 const {height} = Dimensions.get('screen');
 interface DetailsProps
@@ -22,14 +22,6 @@ export const DetailsScreen = ({
 }: DetailsProps) => {
   const uri = image(backdrop_path);
   const {cast, isLoading, movieFull} = useMovieDetails(id);
-
-  if (isLoading) {
-    return (
-      <View style={styles.loading}>
-        <ActivityIndicator color={'red'} size={100} />
-      </View>
-    );
-  }
 
   return (
     <ScrollView>
@@ -45,8 +37,12 @@ export const DetailsScreen = ({
         <Text style={styles.subtitle}>{original_title}</Text>
         <Text style={styles.title}>{title}</Text>
       </View>
-      <View style={styles.marginContainerText}>
-        <Icon name="star-outline" color="grey" size={20} />
+      <View style={styles.details}>
+        {isLoading ? (
+          <ActivityIndicator color={'grey'} size={35} style={styles.loading} />
+        ) : (
+          <Details cast={cast} movieFull={movieFull!} />
+        )}
       </View>
     </ScrollView>
   );

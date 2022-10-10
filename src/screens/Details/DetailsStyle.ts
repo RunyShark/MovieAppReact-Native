@@ -31,8 +31,9 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   loading: {
-    flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center',
+    marginTop: 20,
+  },
+  details: {
+    marginTop: 20,
   },
 });

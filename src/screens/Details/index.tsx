@@ -1,7 +1,7 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
 import {Dimensions, Image, ScrollView, Text, View} from 'react-native';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import {image, RootStackParams} from '../../index';
 import {styles} from './DetailsStyle';
 const {height} = Dimensions.get('screen');
@@ -29,7 +29,9 @@ export const DetailsScreen = ({
         <Text style={styles.subtitle}>{original_title}</Text>
         <Text style={styles.title}>{title}</Text>
       </View>
-      <View style={styles.marginContainerText}></View>
+      <View style={styles.marginContainerText}>
+        <Icon name="star-outline" color="grey" size={20} />
+      </View>
     </ScrollView>
   );
 };

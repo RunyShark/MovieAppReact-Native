@@ -29,4 +29,8 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginHorizontal: 20,
   },
+  flat: {
+    marginTop: 10,
+    height: 60,
+  },
 });

@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
     shadowRadius: 7,
     elevation: 9,
     borderRadius: 10,
+    marginRight: 10,
   },
   nameActor: {
     fontSize: 18,

@@ -5,6 +5,7 @@ import {format} from 'currency-formatter';
 
 import {styles} from './DetailsStyle';
 import {Cast, MovieFull, CardActor} from '../../index';
+import {FlatList} from 'react-native-gesture-handler';
 
 interface PropsDetails {
   movieFull: MovieFull;
@@ -33,7 +34,14 @@ export const Details = ({movieFull, cast}: PropsDetails) => {
       </View>
       <View style={styles.cast}>
         <Text style={styles.castText}>Actors</Text>
-        <CardActor {...cast[0]} />
+        <FlatList
+          data={cast}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({item}) => <CardActor {...item} />}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.flat}
+        />
       </View>
     </>
   );

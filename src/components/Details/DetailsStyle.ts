@@ -19,4 +19,14 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 15,
   },
+  cast: {
+    marginTop: 10,
+    marginBottom: 200,
+  },
+  castText: {
+    fontSize: 23,
+    marginTop: 10,
+    fontWeight: 'bold',
+    marginHorizontal: 20,
+  },
 });

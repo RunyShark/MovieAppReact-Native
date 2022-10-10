@@ -2,8 +2,9 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {format} from 'currency-formatter';
-import {Cast, MovieFull} from '../../interface';
+
 import {styles} from './DetailsStyle';
+import {Cast, MovieFull, CardActor} from '../../index';
 
 interface PropsDetails {
   movieFull: MovieFull;
@@ -29,6 +30,10 @@ export const Details = ({movieFull, cast}: PropsDetails) => {
         <Text style={styles.overView}>
           {format(movieFull.budget, {code: 'USD'})}
         </Text>
+      </View>
+      <View style={styles.cast}>
+        <Text style={styles.castText}>Actors</Text>
+        <CardActor {...cast[0]} />
       </View>
     </>
   );

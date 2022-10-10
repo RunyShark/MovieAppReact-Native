@@ -30,4 +30,9 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
 });

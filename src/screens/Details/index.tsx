@@ -1,8 +1,15 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {Dimensions, Image, ScrollView, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Dimensions,
+  Image,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {image, RootStackParams} from '../../index';
+import {image, RootStackParams, useMovieDetails} from '../../index';
 import {styles} from './DetailsStyle';
 const {height} = Dimensions.get('screen');
 interface DetailsProps
@@ -10,10 +17,19 @@ interface DetailsProps
 
 export const DetailsScreen = ({
   route: {
-    params: {title, original_title, backdrop_path},
+    params: {title, original_title, backdrop_path, id},
   },
 }: DetailsProps) => {
   const uri = image(backdrop_path);
+  const {cast, isLoading, movieFull} = useMovieDetails(id);
+
+  if (isLoading) {
+    return (
+      <View style={styles.loading}>
+        <ActivityIndicator color={'red'} size={100} />
+      </View>
+    );
+  }
 
   return (
     <ScrollView>
